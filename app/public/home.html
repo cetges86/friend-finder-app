@@ -1,20 +1,40 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Home</title>
+    <title>Friend Finder</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <!-- <script src="main.js"></script> -->
 </head>
+
 <body>
     <div class="container">
-        <div id="jumbotron" style="height: 80vh" class="row valign-wrapper">
-            <h1 class="center-align">Friend Finder</h1>
+        <div id="jumbotron" style="height: 80vh" class="row valign-wrapper light-blue lighten-5 z-depth-2">
+            <div class="row center-block">
+                <h1 class="center-align">
+                    <i style="font-size: 100%" class="material-icons">mood</i>
+                   <span style="font-variant: small-caps"> Friend Finder </span>
+                 </h1>
+                <hr>
+                <h5 class="center-align">Take a Quick Survey and Make Some New Friends!</h5>
+                <div class="row center-align">
+                    <br>
+                    <a href="/survey">
+                        <button class="btn waves-effect waves-light z-depth-4 center-align" type="submit" name="action">Start Survey
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </a>
+                </div>
+            </div>
         </div>
+        <a href="/api/friends">API Friends List</a> |
+        <a href="https://github.com/cetges86/friend-finder-app">GitHub Repo</a>
     </div>
 </body>
+
 </html>
