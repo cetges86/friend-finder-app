@@ -42,11 +42,11 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">account_circle</i>
-                        <input id="userName" id="icon_prefix" placeholder="Name" type="text" class="validate" required>
+                        <input id="userName" id="icon_prefix" placeholder="Name" type="text" class="surveyElem validate" required>
                     </div>
                     <div class="input-field col s6">
                         <i class="material-icons prefix">image</i>
-                        <input id="imageURL" id="icon_prefix" placeholder="Link to Image" type="text" class="validate" required>
+                        <input id="imageURL" id="icon_prefix" placeholder="Link to Image" type="text" class="surveyElem validate" required>
                     </div>
                 </div>
 
@@ -59,7 +59,7 @@
                 <ol>
                     <li class="col s10">I would describe myself as a cat person.
                         <div class="input-field col s12">
-                            <select id="q1">
+                            <select class="surveyElem" id="q1">
                                 <option value="" disabled selected>Choose your option</option>
                                 <option value="1">1 - Strongly Disagree</option>
                                 <option value="2">2</option>
@@ -72,7 +72,7 @@
                     <li class="col s10">
                         I like to unwind with a trip up to the mountains.
                         <div class="input-field col s12">
-                            <select id="q2">
+                            <select class="surveyElem" id="q2">
                                 <option value="" disabled selected>Choose your option</option>
                                 <option value="1">1 - Strongly Disagree</option>
                                 <option value="2">2</option>
@@ -85,7 +85,7 @@
                     <li class="col s10">
                         I would describe myself as a happy-go-lucky person.
                         <div class="input-field col s12">
-                            <select id="q3">
+                            <select class="surveyElem" id="q3">
                                 <option value="" disabled selected>Choose your option</option>
                                 <option value="1">1 - Strongly Disagree</option>
                                 <option value="2">2</option>
@@ -98,7 +98,7 @@
                     <li class="col s10">
                         My ideal evening would be a night on the town, getting some drinks and staying out into the wee hours of the night.
                         <div class="input-field col s12">
-                            <select id="q4">
+                            <select class="surveyElem" id="q4">
                                 <option value="" disabled selected>Choose your option</option>
                                 <option value="1">1 - Strongly Disagree</option>
                                 <option value="2">2</option>
@@ -111,7 +111,7 @@
                     <li class="col s10">
                         I see myself as a family-oriented person.
                         <div class="input-field col s12">
-                            <select id="q5">
+                            <select class="surveyElem" id="q5">
                                 <option value="" disabled selected>Choose your option</option>
                                 <option value="1">1 - Strongly Disagree</option>
                                 <option value="2">2</option>
@@ -124,7 +124,7 @@
                     <li class="col s10">
                         If I go on a vacation, I want to go on an adventure and experience something new.
                         <div class="input-field col s12">
-                            <select id="q6">
+                            <select class="surveyElem" id="q6">
                                 <option value="" disabled selected>Choose your option</option>
                                 <option value="1">1 - Strongly Disagree</option>
                                 <option value="2">2</option>
@@ -137,7 +137,7 @@
                     <li class="col s10">
                         I prefer fiction over non-fiction, in any medium.
                         <div class="input-field col s12">
-                            <select id="q7">
+                            <select class="surveyElem" id="q7">
                                 <option value="" disabled selected>Choose your option</option>
                                 <option value="1">1 - Strongly Disagree</option>
                                 <option value="2">2</option>
@@ -150,7 +150,7 @@
                     <li class="col s10">
                         I would prefer to be alone than with a group.
                         <div class="input-field col s12">
-                            <select id="q8">
+                            <select class="surveyElem" id="q8">
                                 <option value="" disabled selected>Choose your option</option>
                                 <option value="1">1 - Strongly Disagree</option>
                                 <option value="2">2</option>
@@ -163,7 +163,7 @@
                     <li class="col s10">
                         Keeping myself and my house clean is very important to me
                         <div class="input-field col s12">
-                            <select id="q9">
+                            <select class="surveyElem" id="q9">
                                 <option value="" disabled selected>Choose your option</option>
                                 <option value="1">1 - Strongly Disagree</option>
                                 <option value="2">2</option>
@@ -176,7 +176,7 @@
                     <li class="col s10">
                         I love to watch and attend sporting events.
                         <div class="input-field col s12">
-                            <select id="q10">
+                            <select class="surveyElem" id="q10">
                                 <option value="" disabled selected>Choose your option</option>
                                 <option value="1">1 - Strongly Disagree</option>
                                 <option value="2">2</option>
@@ -202,14 +202,14 @@
 
 
     <div id="modal1" class="modal">
-            <div class="modal-content">
-              <h4>Modal Header</h4>
-              <p>A bunch of text</p>
-            </div>
-            <div class="modal-footer">
-              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-            </div>
-          </div>
+        <div class="modal-content">
+            <h4>Modal Header</h4>
+            <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
@@ -224,34 +224,49 @@
 
         $('#finish').on("click", function (event) {
             event.preventDefault();
-            let name = $('#userName').val();
-            let imageURL = $('#imageURL').val();
-            let scores = [];
 
-            for (let i = 1; i < 11; i++) {
-                let choice = $(`#q${i}`).val();
-                scores.push(choice);
-            }
-
-            let newUser = {
-                name: name,
-                image: imageURL,
-                scores: scores
-            }
-
-            console.log(newUser);
-
-            function addUser() {
-                $.post("/api/friends", newUser)
-                .done(function (data) {
-                    console.log(data);
-                    $('#modal1').modal('open');
+            function completedForm() {
+                let filledOut = true;
+                $(".surveyElem").each(function () {
+                    if ($(this).val() === "") {
+                        filledOut = false;
+                    }
                 });
+                return filledOut;
+            }
+
+            if (completedForm()) {
+
+                let name = $('#userName').val();
+                let imageURL = $('#imageURL').val();
+                let scores = [];
+
+                for (let i = 1; i < 11; i++) {
+                    let choice = $(`#q${i}`).val();
+                    scores.push(choice);
+                }
+
+                let newUser = {
+                    name: name,
+                    image: imageURL,
+                    scores: scores
+                }
+
+                console.log(newUser);
+
+                function addUser() {
+                    $.post("/api/friends", newUser)
+                        .done(function (data) {
+                            console.log(data);
+                            $('#modal1').modal('open');
+                        });
+                };
+
+                addUser(newUser);
+
+            } else {
+                alert("Please fill out all fields and answer all questions!")
             };
-
-            addUser(newUser);
-
-
         });
     });
 </script>
