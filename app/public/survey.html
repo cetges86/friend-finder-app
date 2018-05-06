@@ -14,6 +14,10 @@
         li {
             margin-bottom: 3%;
         }
+
+        #friendImg{
+            max-width: 100%;
+        }
     </style>
 </head>
 
@@ -200,7 +204,7 @@
         <a href="https://github.com/cetges86/friend-finder-app">GitHub Repo</a>
     </div>
 
-
+    <!--modal that pops up when the survey is completed -->
     <div id="modal1" class="modal">
         <div class="modal-content">
             <h4 id ="friendName">Your chosen friend</h4>
@@ -211,20 +215,22 @@
         </div>
     </div>
 </body>
+<!--jQuery CDN link-->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
+<!--Materialize CDN link-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 <script>
 
     $(document).ready(function () {
-
+        //init for Materialize functionality
         $('select').formSelect();
         $('.modal').modal();
 
-
+        //runs when finish button is clicked
         $('#finish').on("click", function (event) {
             event.preventDefault();
-
+            //checks to make sure all input fields and choices are completed
             function completedForm() {
                 let filledOut = true;
                 $(".surveyElem").each(function () {
@@ -234,18 +240,18 @@
                 });
                 return filledOut;
             }
-
+            //only runs if form is complete
             if (completedForm()) {
-
+                //pulls name and url inputs
                 let name = $('#userName').val();
                 let imageURL = $('#imageURL').val();
                 let scores = [];
-
+                //pulls answers for questions
                 for (let i = 1; i < 11; i++) {
                     let choice = $(`#q${i}`).val();
                     scores.push(choice);
                 }
-
+                //object to be pushed to api json object
                 let newUser = {
                     name: name,
                     image: imageURL,
@@ -253,11 +259,12 @@
                 }
 
                 console.log(newUser);
-
+                //post request
                 function addUser() {
                     $.post("/api/friends", newUser)
                         .done(function (data) {
-                            $('#friendName').text(`Your chosen friend is ${data.friendName}`);
+                            //populates picture and name
+                            $('#friendName').text(`Your chosen friend is ${data.friendName}! Hooray`);
                             $('#friendImg').attr("src", `${data.friendImg}`);
                             $('#modal1').modal('open');
                         });
