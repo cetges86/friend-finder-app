@@ -8,8 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="css/style.css" /> -->
     <!-- <script src="./js/materialize.js"></script> -->
+    <style>
+        li {
+            margin-bottom: 3%;
+        }
+    </style>
 </head>
 
 <body>
@@ -33,33 +38,28 @@
 
         <div class="survey">
             <div class="row">
-                <form class="col s12">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <i class="material-icons prefix">account_circle</i>
-                            <input id="icon_prefix" placeholder="Name" type="text" class="validate">
-                        </div>
-                        <div class="file-field input-field col s6">
 
-                            <div class="waves-effect waves-light btn">
-                                <i class="material-icons right">image</i>File </a>
-                                <input type="file">
-                            </div>
-                            <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text" placeholder="Upload a photo of yourself">
-                            </div>
-                        </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="userName" id="icon_prefix" placeholder="Name" type="text" class="validate" required>
                     </div>
-                </form>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">image</i>
+                        <input id="imageURL" id="icon_prefix" placeholder="Link to Image" type="text" class="validate" required>
+                    </div>
+                </div>
+
             </div>
             <div class="row">
                 <h6>These questions are designed to match your personality with someone you haven't met yet! Answer truthfully
                     for the best results!</h6>
+                <br>
                 <hr>
                 <ol>
-                    <li>I would describe myself as a cat person.
-                        <div class="input-field col s5">
-                            <select>
+                    <li class="col s10">I would describe myself as a cat person.
+                        <div class="input-field col s12">
+                            <select id="q1">
                                 <option value="" disabled selected>Choose your option</option>
                                 <option value="1">1 - Strongly Disagree</option>
                                 <option value="2">2</option>
@@ -67,11 +67,129 @@
                                 <option value="4">4</option>
                                 <option value="5">5 - Strongly Agree</option>
                             </select>
-                            <label>Materialize Select</label>
+                        </div>
+                    </li>
+                    <li class="col s10">
+                        I like to unwind with a trip up to the mountains.
+                        <div class="input-field col s12">
+                            <select id="q2">
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="1">1 - Strongly Disagree</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5 - Strongly Agree</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li class="col s10">
+                        I would describe myself as a happy-go-lucky person.
+                        <div class="input-field col s12">
+                            <select id="q3">
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="1">1 - Strongly Disagree</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5 - Strongly Agree</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li class="col s10">
+                        My ideal evening would be a night on the town, getting some drinks and staying out into the wee hours of the night.
+                        <div class="input-field col s12">
+                            <select id="q4">
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="1">1 - Strongly Disagree</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5 - Strongly Agree</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li class="col s10">
+                        I see myself as a family-oriented person.
+                        <div class="input-field col s12">
+                            <select id="q5">
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="1">1 - Strongly Disagree</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5 - Strongly Agree</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li class="col s10">
+                        If I go on a vacation, I want to go on an adventure and experience something new.
+                        <div class="input-field col s12">
+                            <select id="q6">
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="1">1 - Strongly Disagree</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5 - Strongly Agree</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li class="col s10">
+                        I prefer fiction over non-fiction, in any medium.
+                        <div class="input-field col s12">
+                            <select id="q7">
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="1">1 - Strongly Disagree</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5 - Strongly Agree</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li class="col s10">
+                        I would prefer to be alone than with a group.
+                        <div class="input-field col s12">
+                            <select id="q8">
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="1">1 - Strongly Disagree</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5 - Strongly Agree</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li class="col s10">
+                        Keeping myself and my house clean is very important to me
+                        <div class="input-field col s12">
+                            <select id="q9">
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="1">1 - Strongly Disagree</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5 - Strongly Agree</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li class="col s10">
+                        I love to watch and attend sporting events.
+                        <div class="input-field col s12">
+                            <select id="q10">
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="1">1 - Strongly Disagree</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5 - Strongly Agree</option>
+                            </select>
                         </div>
                     </li>
                 </ol>
-
+                <button class="btn waves-effect waves-light" id="finish" type="submit" name="action">Find My Friend!
+                    <i class="material-icons right">send</i>
+                </button>
 
             </div>
         </div>
@@ -81,10 +199,63 @@
         <a href="/api/friends">API Friends List</a> |
         <a href="https://github.com/cetges86/friend-finder-app">GitHub Repo</a>
     </div>
+
+
+    <div id="modal1" class="modal">
+            <div class="modal-content">
+              <h4>Modal Header</h4>
+              <p>A bunch of text</p>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+          </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+<script>
 
-<script src="./js/script.js"></script>
+    $(document).ready(function () {
+
+        $('select').formSelect();
+        $('.modal').modal();
+
+
+        $('#finish').on("click", function (event) {
+            event.preventDefault();
+            let name = $('#userName').val();
+            let imageURL = $('#imageURL').val();
+            let scores = [];
+
+            for (let i = 1; i < 11; i++) {
+                let choice = $(`#q${i}`).val();
+                scores.push(choice);
+            }
+
+            let newUser = {
+                name: name,
+                image: imageURL,
+                scores: scores
+            }
+
+            console.log(newUser);
+
+            function addUser() {
+                $.post("/api/friends", newUser)
+                .done(function (data) {
+                    console.log(data);
+                    $('#modal1').modal('open');
+                });
+            };
+
+            addUser(newUser);
+
+
+        });
+    });
+</script>
+<!-- <script src="js/script.js"></script> -->
+
 
 </html>
