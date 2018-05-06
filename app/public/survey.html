@@ -203,11 +203,11 @@
 
     <div id="modal1" class="modal">
         <div class="modal-content">
-            <h4>Modal Header</h4>
-            <p>A bunch of text</p>
+            <h4 id ="friendName">Your chosen friend</h4>
+            <img id="friendImg" src="" alt="">
         </div>
         <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            <a href="/" class="modal-close waves-effect waves-green btn-flat">Done</a>
         </div>
     </div>
 </body>
@@ -257,7 +257,8 @@
                 function addUser() {
                     $.post("/api/friends", newUser)
                         .done(function (data) {
-                            console.log(data);
+                            $('#friendName').text(`Your chosen friend is ${data.friendName}`);
+                            $('#friendImg').attr("src", `${data.friendImg}`);
                             $('#modal1').modal('open');
                         });
                 };
