@@ -1,16 +1,17 @@
 //dependencies
-const server = require('../../server')
-const users = require('../data/friends')
+const server = require('../../server');
+const users = require('../data/friends.json');
 const express = require("express");
 const router = express.Router();
-const bodyParser = require("body-parser")
+const bodyParser = require("body-parser");
+const fs = require("fs");
 
 //for req.body usage
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 
 router.get("/api/friends", function (req, res) {
-    return res.json(surveyResults);
+    return res.json(users.surveyResults);
 });
 
 router.post("/api/friends", function (req, res) {
@@ -28,14 +29,14 @@ router.post("/api/friends", function (req, res) {
     let total = 500;
     
     
-    for (let i = 0; i < surveyResults.length; i++) {
+    for (let i = 0; i < users.surveyResults.length; i++) {
         let diff = 0;
         //new array with the difference values
         let difference = [];
         
         for (let j = 0; j < answers.length; j++) {
             //takes absolute value of differences
-            let diff = Math.abs(answers[j] - surveyResults[i].scores[j]);
+            let diff = Math.abs(answers[j] - users.surveyResults[i].scores[j]);
             //pushes difference to new array
             difference.push(diff);
 
@@ -50,22 +51,27 @@ router.post("/api/friends", function (req, res) {
             total = sum;
             //resets the sum each loop
             sum = 0;
-            friendName = surveyResults[i].name;
-            friendImg = surveyResults[i].image;
+            friendName = users.surveyResults[i].name;
+            friendImg = users.surveyResults[i].image;
         } else {
             sum = 0;
         }
     }
     //adds new user to API
-    surveyResults.push(newFriend);
+    users.surveyResults.push(newFriend);
+
+    //rewrites JSON file to store users
+    fs.writeFile('friends.json', JSON.stringify(users.surveyResults), function(err){
+        if(err) throw err;
+        console.log(JSON.stringify(users.surveyResults))
+        console.log('file updated')
+    });
+
     //pushed results back for html page to use
     res.json({
         friendName: friendName,
         friendImg: friendImg
     });
-
-
-
 });
 
 module.exports = router;
