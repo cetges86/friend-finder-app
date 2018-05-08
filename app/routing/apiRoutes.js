@@ -1,6 +1,6 @@
 //dependencies
 const server = require('../../server');
-const users = require('../data/friends.json');
+const users = require('../../app/data/friends.json');
 const express = require("express");
 const router = express.Router();
 const bodyParser = require("body-parser");
@@ -61,7 +61,7 @@ router.post("/api/friends", function (req, res) {
     users.surveyResults.push(newFriend);
 
     //rewrites JSON file to store users
-    fs.writeFile('friends.json', JSON.stringify(users.surveyResults), function(err){
+    fs.writeFile(__dirname+"/../data/friends.json", `{"surveyResults": ${JSON.stringify(users.surveyResults)}}`, function(err){
         if(err) throw err;
         console.log(JSON.stringify(users.surveyResults))
         console.log('file updated')
