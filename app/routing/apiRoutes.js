@@ -27,13 +27,13 @@ router.post("/api/friends", function (req, res) {
     let friendImg = "";
     //establishes a value that the resulting sum will always be less than, to get into if statement
     let total = 500;
-    
-    
+
+
     for (let i = 0; i < users.surveyResults.length; i++) {
         let diff = 0;
         //new array with the difference values
         let difference = [];
-        
+
         for (let j = 0; j < answers.length; j++) {
             //takes absolute value of differences
             let diff = Math.abs(answers[j] - users.surveyResults[i].scores[j]);
@@ -61,8 +61,8 @@ router.post("/api/friends", function (req, res) {
     users.surveyResults.push(newFriend);
 
     //rewrites JSON file to store users
-    fs.writeFile(__dirname+"/../data/friends.json", `{"surveyResults": ${JSON.stringify(users.surveyResults)}}`, function(err){
-        if(err) throw err;
+    fs.writeFile(__dirname + "/../data/friends.json", `{"surveyResults": ${JSON.stringify(users.surveyResults)}}`, function (err) {
+        if (err) throw err;
         console.log(JSON.stringify(users.surveyResults))
         console.log('file updated')
     });
