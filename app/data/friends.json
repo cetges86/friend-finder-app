@@ -127,6 +127,38 @@
                 "4",
                 "2"
             ]
+        },
+        {
+            "name": "Queen",
+            "image": "https://articlebio.com/uploads/bio/2017/03/18/queen-latifah.jpg",
+            "scores": [
+                "1",
+                "1",
+                "3",
+                "1",
+                "2",
+                "4",
+                "5",
+                "4",
+                "5",
+                "5"
+            ]
+        },
+        {
+            "name": "Bruce Wayne",
+            "image": "https://cnet3.cbsistatic.com/img/8AMF9wBIvV9inPxAcmaTuAXgh5o=/2013/01/02/6ce11462-fdb6-11e2-8c7c-d4ae52e62bcc/brucewayne.jpg",
+            "scores": [
+                "2",
+                "3",
+                "2",
+                "4",
+                "2",
+                "3",
+                "2",
+                "5",
+                "4",
+                "3"
+            ]
         }
     ]
 }
